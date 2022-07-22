@@ -1106,10 +1106,8 @@ async function get_team(round_num) {
     let { data, error } = await sb.rpc('random_team', {round_num})
     if(error) { alert(error) }
     console.log(data);
-	if(data.length == 0) { return [{"name":"none", "teamdata":[[]]}] }
+	if(error || data.length == 0) { return [{"name":"none", "teamdata":[[]]}] }
     return data;
-    
-    //return [{"name":"test", "teamdata":[["112,1,33","122,1,21"]]}]
 }
 
 async function write_db(teams, name) {
